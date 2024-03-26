@@ -433,7 +433,15 @@ body {
 }
 
 .footer-subscribe{
+    display: flex;
     max-width: 453px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer-subscribe-wrapper {
+    max-width: 264px;
+    margin-right: 24px;
 }
 
 .footer-label{
@@ -444,30 +452,43 @@ body {
 
 .footer-input{
     border: 1px solid #fff;
-        border-radius: 4px;
-        width: 264px;
-        height: 40px;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
-        background-color: none;
+    border-radius: 4px;
+     width: 264px;
+    height: 40px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+    background-color: #2e2f42;
+    margin-top: 16px;
+    padding: 8px 16px;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    color: #fff;
+}
 
+.footer-input::placeholder{
+font-size: 12px;
+line-height: 2;
+letter-spacing: 0.04em;
+color: #fff;
 }
 
 .footer-btn{
+    position: relative;
     border-radius: 4px;
     border: none;
-    padding: 8px 24px;
     min-width: 165px;
     height: 40px;
     cursor: pointer;
     display: block;
     background-color: #4d5ae5;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
     font-weight: 500;
-    letter-spacing: 0.04em;
     text-align: center;
+    letter-spacing: 0.04em;
     color: #fff;
+    margin-right: 16px;
 }
+  
 
 .footer-btn:hover,
 .footer-btn:focus{
@@ -475,41 +496,46 @@ body {
 }
 
 .footer-subscribe-icon{
+    position: absolute;
+    right: 24px;
+    bottom: 8px;
     fill: #fff;
-    margin-left: 16px;
-
 }
 /* #endregion */
+
+
+
 
 /* #region modal-overlay */
 .modal-overlay{
     position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: rgba(46, 47, 66, 0.4);
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 999;
-
-    /*  
+    z-index: 999999;
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    */
+    visibility: hidden;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-overlay.is-open{
     opacity: 1;
-    pointer-events: auto;
-
+    visibility: visible;
 }
 
 .modal{
-    max-width: 408px;
-    max-height: 584px;
+    position: absolute;
+    left: 50%; 
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 408px;
+    min-height: 584px;
+    padding-top: 72px;
+    padding-bottom: 24px;
+    padding-left: 24px;
+   padding-right: 24px;
     overflow-y: auto;
     border-radius: 4px;
     background-color: #fcfcfc;
@@ -517,65 +543,143 @@ body {
     0 1px 3px 0 rgba(0, 0, 0, 0.12), 
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
 }
-
-.contact-form{
-    padding: 24px;
-}
-
-.contact-form-close{
+ 
+.form-close-btn{
+    position: absolute;
+    top: 24px;
+    right: 24px;
     border-radius: 50%;
     width: 24px;
     height: 24px;
+    padding: 0;
+    line-height: 0;
     background-color: #e7e9fc;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.title-form{
+
+.form-close-btn:hover,
+.form-close-btn:focus{
+    background-color: #404bbf;
+    fill: #FFFFFF;
+}
+
+.review-form-description{
     font-weight: 500;
     letter-spacing: 0.02em;
     text-align: center;
     color: #2e2f42;
+    margin-bottom: 16px;
 }
 
-.contact-form-label{
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 1.16667;
-        letter-spacing: 0.04em;
-        color: #8e8f99;
+.review-form-field-wrapper{
+    margin-bottom: 8px;
 }
 
-.contact-form-imput{
+.review-form-imput-wrapper{
+    position: relative;
+}
+
+.review-form-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+}
+
+.review-form-imput {
     width: 100%;
     height: 40px;
-    margin-bottom: 26;
-    padding-left: ;
+    padding-left: 62px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contact-form-imput:hover,
-.contact-form-imput:focus{
-border: 1px solid #4d5ae5;
+.review-form-icon{
+    position: absolute;
+    fill: #2e2f42;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.privacy-police{
-    line-height: 1.33333;
-        text-decoration: underline;
-        text-decoration-skip-ink: none;
-        color: #4d5ae5;
-}
-
-
-.contact-form-com{
+.contact-form-com {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
     border: 1px solid rgba(46, 47, 66, 0.4);
-        border-radius: 4px;
-        width: 100%;
-        height: 120px;
-        padding: 8px 16px;
-        resize: none;
+    border-radius: 4px;
+    width: 100%;
+    height: 120px;
+    padding: 8px 16px;
+    resize: none;
+    background-color: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.contact-form-com:focus, .review-form-imput:focus{
+border-color: #4d5ae5;
+outline: transparent;
+}
+
+.review-form-imput:focus+.review-form-icon {
+    fill: #4d5ae5;
+}
+
+.contact-form-com::placeholder{
+    color: rgba(46, 47, 66, 0.4);
+}
+
+.review-form-checkbox-wrapper {
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.review-form-checkbox-label{
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+}
+
+.link-privacy-policy{
+    line-height: 1.33;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #4d5ae5;
+}
+
+.review-form-own-checkbox{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border-radius: 2px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    cursor: pointer;
+    fill: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.review-form-privacy-checkbox:checked+.review-form-checkbox-label .review-form-own-checkbox {
+    background-color: #404bbf;
+    border-color: #404bbf;
+    fill: #f4f4fd;
+}
+
+.review-form-privacy-checkbox:focus+.review-form-checkbox-label .review-form-own-checkbox {
+        outline: 2px solid rgba(0, 0, 255, 0.5);
+}
+
 
 
 .contact-form-btn{
